@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>login</title>
+    </head>
+    <body>
+        <form method="post" action="/login">
+            <div class="form-floating mb-3">
+            <input class="form-control" placeholder="아이디를 입력해주세요" type="text" name="uuid" required>
+            </div>
+            <div class="form-floating mb-3">
+            <input class="form-control" placeholder="비밀번호를 입력해주세요" type="password" name="password" required>
+            </div>
+            <div class="form-floating mb-3">
+            <input class="btn btn-outline-secondary" type="submit">
+            <button type="button" class="btn btn-outline-secondary" onclick="location.href='/member'">회원가입</button>
+            </div>
+        </form>
+
+    </body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</html>

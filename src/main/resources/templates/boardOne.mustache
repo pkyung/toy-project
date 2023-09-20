@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>boardOne</title>
+    </head>
+    <body>
+        {{#board}}
+            <h1>{{title}}</h1>
+            <h2>{{writer}}</h2>
+            <h1>{{content}}</h1>
+            <h3>{{createAt}}</h3>
+            <h3>{{modifiedAt}}</h3>
+        {{/board}}
+        {{#mine}}
+        <div>
+            <form action="/board/{{id}}" method="post">
+                <button onclick="location.href='/boardUpdate/{{id}}'" type="button" class="btn btn-outline-secondary">수정</button>
+                <input type="hidden" name="_method" value="delete">
+                <input class="btn btn-outline-secondary" value="삭제" type="submit">
+            </form>
+        </div>
+        {{/mine}}
+    </body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</html>
