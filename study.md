@@ -1,5 +1,6 @@
 # 알게된 점 총 정리🎓
 
+
 ## form 태그는 get과 post만 지원 -> put과 delete 사용하기
 application.properties 에 추가
 
@@ -11,10 +12,20 @@ application.properties 에 추가
         <input type="hidden" name="_method" value="put">
     </form>
 
+
 ## form 에서 dto를 인식하려면 AllArgsConstructor가 있어야함
 스프링은 http 요청으로 전송된 데이터를 자동으로 DTO 객체에 매핑한다. 이를 통해 json이나 form으로 받은 데이터를 자바 객체로 만드는데 DTO의 생성자를 사용해서 필드값을 설정한다. AllArgsConstructor가 없으면 기본 생성자나 세터로 해야하므로 있어야한다. 
+
 
 ## @EnableJpaAuditing 
 Configuration 어노테이션을 통해 JPA 에서 auditing을 가능하게 한다. TimeStamped class를 사용할 때 필요하다.
 
+
+## mustache는 display를 Boolean으로 가능함
+수정, 삭제 권한을 본인 게시글에만 주기 위해 {{mine}}을 사용했다. (boardOne.mustache) true일 때는 태그가 보이고 false일 떄는 태그가 보이지 않는다. 
+
+
 ## jpa update 
+jpa에는 수정 메서드가 없다. jpa에서 수정하는 방법은 entity를 조회하여 조회된 entity 데이터를 변경하면 데이터베이스에 자동적으로 반영되는데 이러한 jpa 기능을 dirty checking이라고 한다. 
+
+jpa는 영속성 컨텍스트에 entity를 보관할 때, 최초의 상태를 저장한다. 이를 스냅샷이라 하며 영속성 컨텍스트가 flush 되는 시점에 스냅샷과 entity의 현재 상태를 비교하여 달라진 entity를 찾는다. 이후 변경된 필드들을 이용하여 update 쿼리를 생성하여 쌓아둔다. 모든 작업 이후에 트랜잭션을 커밋하면 쓰기 지연 sql 저장소에 있는 쿼리들을 db에 전달하여 update를 한다. 
