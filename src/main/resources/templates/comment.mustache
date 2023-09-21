@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+    </head>
+    <body>
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">내용</th>
+                        <th scope="col">작성자</th>
+                        <th scope="col">등록 일자</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#comment}}
+                        <tr>
+                            <td>{{content}}</td>
+                            <td>{{writer}}</td>
+                            <td>{{createAt}}</td>
+                        </tr>
+                    {{/comment}}
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>
