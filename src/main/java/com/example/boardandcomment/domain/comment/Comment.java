@@ -19,7 +19,7 @@ public class Comment extends TimeStamped {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String comment;
+    private String content;
 
     @ManyToOne
     @JoinColumn(name = "board_id")
