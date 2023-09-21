@@ -6,11 +6,11 @@
     </head>
     <body>
         {{#board}}
-            <h1>{{title}}</h1>
-            <h2>{{writer}}</h2>
-            <h1>{{content}}</h1>
-            <h3>{{createAt}}</h3>
-            <h3>{{modifiedAt}}</h3>
+            <div>{{title}}</div>
+            <div>{{writer}}</div>
+            <div>{{content}}</div>
+            <div>{{createAt}}</div>
+            <div>{{modifiedAt}}</div>
         {{/board}}
         {{#mine}}
         <div>
@@ -21,6 +21,8 @@
             </form>
         </div>
         {{/mine}}
+        <hr>
+
     </body>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
