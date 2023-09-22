@@ -22,8 +22,10 @@ public class CommentService {
     private final BoardRepository boardRepository;
     private final MemberRepository memberRepository;
 
-    public List<CommentResponseDto> getComment(Long boardId) {
+    public List<CommentResponseDto> getComment(Long boardId, Cookie memberId) {
         Board board = boardRepository.findById(boardId).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다."));
+        Member member = memberRepository.findByUuid(memberId.getValue()).orElseThrow(() -> new IllegalArgumentException("해당 멤버가 존재하지 않습니다."));
+
         List<Comment> commentList = commentRepository.findByBoard(board);
         List<CommentResponseDto> commentDtoList = new ArrayList<>();
         for (int i = 0; i < commentList.size(); i++) {
@@ -34,6 +36,11 @@ public class CommentService {
             commentResponseDto.setCreateAt(commentList.get(i).getCreateAt());
             commentResponseDto.setModifiedAt(commentList.get(i).getModifiedAt());
             commentResponseDto.setBoardId(commentList.get(i).getBoard().getId());
+            if (commentList.get(i).getWriter().equals(member)) {
+                commentResponseDto.setIsMine(true);
+            } else {
+                commentResponseDto.setIsMine(false);
+            }
             commentDtoList.add(commentResponseDto);
         }
         return commentDtoList;

@@ -4,24 +4,19 @@
     </head>
     <body>
         <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">내용</th>
-                        <th scope="col">작성자</th>
-                        <th scope="col">등록 일자</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{#comment}}
-                        <tr>
-                            <td>{{content}}</td>
-                            <td>{{writer}}</td>
-                            <td>{{createAt}}</td>
-                        </tr>
-                    {{/comment}}
-                </tbody>
-            </table>
+            <br> <br>
+            {{#comment}}
+                <div>{{content}}</div>
+                <div style="text-align: right"> <h6>작성자: {{writer}}</h6></div>
+                {{#isMine}}
+                    <div style="text-align: right">
+                        <form method="post">
+                            <input type="hidden" name="_method" value="delete">
+                            <input class="btn btn-outline-secondary" value="삭제" type="submit">
+                        </form>
+                    </div>
+                {{/isMine}}
+            {{/comment}}
         </div>
     </body>
 </html>

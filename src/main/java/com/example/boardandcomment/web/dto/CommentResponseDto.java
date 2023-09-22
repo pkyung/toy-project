@@ -12,6 +12,7 @@ public class CommentResponseDto {
     private Long boardId;
     private String content;
     private String writer;
+    private Boolean isMine;
     private LocalDateTime createAt;
     private LocalDateTime modifiedAt;
 

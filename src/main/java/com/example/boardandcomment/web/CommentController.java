@@ -18,8 +18,8 @@ public class CommentController {
     private final CommentService commentService;
 
     @GetMapping("/comment/{boardId}")
-    public String getComment(@PathVariable Long boardId, Model model) {
-        model.addAttribute("comment", commentService.getComment(boardId));
+    public String getComment(@PathVariable Long boardId, Model model, @CookieValue(value = "memberId", required = false) Cookie memberCookie) {
+        model.addAttribute("comment", commentService.getComment(boardId, memberCookie));
         return "comment";
     }
 
