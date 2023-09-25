@@ -56,4 +56,10 @@ public class CommentService {
                 .board(board)
                 .build());
     }
+
+    public Long deleteComment(Long commentId) {
+        Comment comment = commentRepository.findById(commentId).orElseThrow(() -> new IllegalArgumentException("해당 댓글이 없습니다."));
+        commentRepository.delete(comment);
+        return commentId;
+    }
 }

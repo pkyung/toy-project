@@ -10,7 +10,7 @@
                 <div style="text-align: right"> <h6>작성자: {{writer}}</h6></div>
                 {{#isMine}}
                     <div style="text-align: right">
-                        <form method="post">
+                        <form method="post" action="/comment/{{id}}">
                             <input type="hidden" name="_method" value="delete">
                             <input class="btn btn-outline-secondary" value="삭제" type="submit">
                         </form>

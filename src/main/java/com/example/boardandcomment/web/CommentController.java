@@ -5,10 +5,7 @@ import com.example.boardandcomment.web.dto.CommentRequestDto;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 
@@ -26,6 +23,12 @@ public class CommentController {
     @PostMapping("/comment/{boardId}")
     public String saveComment(@PathVariable Long boardId, CommentRequestDto commentRequestDto, @CookieValue(value = "memberId", required = false) Cookie memberCookie) {
         commentService.saveComment(commentRequestDto, boardId, memberCookie);
+        return "redirect:/board";
+    }
+
+    @DeleteMapping("/comment/{commentId}")
+    public String deleteComment(@PathVariable Long commentId) {
+        commentService.deleteComment(commentId);
         return "redirect:/board";
     }
 }
