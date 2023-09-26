@@ -4,6 +4,7 @@
         <meta charset="UTF-8">
         <title>boardOne</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
     </head>
     <body>
         {{#board}}
@@ -23,7 +24,9 @@
                     </div>
                 {{/mine}}
             </div>
+            <div id="like">
 
+            </div>
 
         <hr>
         <form method="post" action="/comment/{{id}}">
@@ -42,5 +45,6 @@
     </body>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/static/comment.js"></script>
+    <script src="https://kit.fontawesome.com/27dd9ac1bb.js" crossorigin="anonymous"></script>
+    <script src="/static/commentAndLike.js"></script>
 </html>

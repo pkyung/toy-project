@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>like</title>
+        </head>
+    <body>
+        <div style="text-align: right" class="container">
+            {{#like}}
+                {{#isMine}}
+                    <div>
+                        <i class="fa-solid fa-heart"></i>
+                        {{cnt}}
+                    </div>
+                {{/isMine}}
+                {{#isNotMine}}
+                    <div class="not-mine">
+                        <i id="isNot" class="fa-regular fa-heart"></i>
+                        <span id="cnt">{{cnt}}</span>
+                    </div>
+                {{/isNotMine}}
+            {{/like}}
+        </div>
+    </body>
+    <script src="/static/like.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+</html>
