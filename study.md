@@ -33,3 +33,6 @@ jpa는 영속성 컨텍스트에 entity를 보관할 때, 최초의 상태를 �
 
 ## JPARepository에서는 <도메인, pk type> 해야함
 JpaRepository<Comment, Long> 이 작업을 하지 않으면 빈 생성이 안된다. 
+
+## org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL
+entity 명에 like 가 있어서 그랬다. likes로 수정하니 에러는 사라졌다. 테이블 명은 복수형이 되도록 하자.
