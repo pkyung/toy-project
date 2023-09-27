@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,5 +22,8 @@ public class Member {
     private String uuid;
     private String password;
     private String name;
+
+    @OneToMany
+    private List<Member> friends = new ArrayList<>();
 
 }
