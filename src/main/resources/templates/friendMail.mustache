@@ -2,16 +2,17 @@
 <html lang="ko">
     <head>
         <meta charset="UTF-8">
-        <title>friendSearch</title>
+        <title>friendMail</title>
     </head>
     <body>
         <div class="container">
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">친구 이름</th>
-                        <th scope="col">친구 아이디</th>
-                        <th scope="col">친구 요청</th>
+                        <th scope="col">요청한 친구 이름</th>
+                        <th scope="col">요청한 친구 아이디</th>
+                        <th scope="col">친구 추가</th>
+                        <th scope="col">친구 차단</th>
                     </tr>
                 </thead>
                 {{#friends}}
@@ -19,7 +20,8 @@
                         <tr>
                             <td>{{name}}</td>
                             <td>{{uuid}}</td>
-                            <td><button value="{{uuid}}" id="request" type="button" class="btn btn-outline-secondary">친구 요청</button></td>
+                            <td><button value="{{uuid}}"  type="button" class="btn btn-outline-secondary">친구 추가</button></td>
+                            <td><button value="{{uuid}}"  type="button" class="btn btn-outline-secondary">친구 차단</button></td>
                         </tr>
                     </tbody>
                 {{/friends}}
@@ -28,5 +30,4 @@
     </body>
     <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://kit.fontawesome.com/27dd9ac1bb.js" crossorigin="anonymous"></script>
-    <script src="/static/saveFriend.js"></script>
 </html>

@@ -1,8 +1,8 @@
-let button = document.getElementById("list");
+let list = document.getElementById("list");
+let mail = document.getElementById("mail");
 let search = document.getElementById("search");
 
-button.onclick = function () {
-    console.log("클릭")
+list.onclick = function () {
     $.ajax({
         type: "GET",
         url: `/friend`,
@@ -21,6 +21,16 @@ search.onclick = function () {
         },
         contentType: 'application/x-www-form-urlencoded;charset=euc-kr',
         url: `/friend/search`,
+        success: function (event) {
+            $("#friend").html(event);
+        }
+    })
+}
+
+mail.onclick = function () {
+    $.ajax({
+        type: "GET",
+        url: `/friend/request`,
         success: function (event) {
             $("#friend").html(event);
         }
