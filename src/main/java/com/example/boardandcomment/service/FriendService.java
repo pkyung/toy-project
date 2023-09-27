@@ -55,4 +55,22 @@ public class FriendService {
         }
         return giveMembers;
     }
+
+    public void saveFriend(Cookie memberId, String friendId) {
+        Member member = memberRepository.findByUuid(memberId.getValue()).orElseThrow(() -> new IllegalArgumentException("해당 멤버는 없습니다."));
+        Member friend = memberRepository.findByUuid(friendId).orElseThrow(() -> new IllegalArgumentException("해당 멤버는 없습니다."));
+
+        member.getFriends().add(friend);
+        friend.getFriends().add(member);
+        Friend friendEntity = friendRepository.findByTakeMemberAndGiveMember(member, friend);
+        friendRepository.delete(friendEntity);
+    }
+
+    public void deleteFriend(Cookie memberId, String friendId) {
+        Member member = memberRepository.findByUuid(memberId.getValue()).orElseThrow(() -> new IllegalArgumentException("해당 멤버는 없습니다."));
+        Member friend = memberRepository.findByUuid(friendId).orElseThrow(() -> new IllegalArgumentException("해당 멤버는 없습니다."));
+
+        Friend friendEntity = friendRepository.findByTakeMemberAndGiveMember(member, friend);
+        friendRepository.delete(friendEntity);
+    }
 }

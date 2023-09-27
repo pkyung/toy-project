@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface FriendRepository extends JpaRepository<Friend, Long> {
     List<Friend> findAllByTakeMember(Member member);
+    Friend findByTakeMemberAndGiveMember(Member giveMember, Member takeMember);
 }

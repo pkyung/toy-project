@@ -1,14 +1,12 @@
 package com.example.boardandcomment.web;
 
 import com.example.boardandcomment.domain.friend.Friend;
+import com.example.boardandcomment.domain.member.Member;
 import com.example.boardandcomment.service.FriendService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
 
@@ -39,5 +37,15 @@ public class FriendController {
     public String getFriendRequest(@CookieValue(value = "memberId", required = false) Cookie memberCookie, Model model) {
         model.addAttribute("friends", friendService.getFriendRequest(memberCookie));
         return "friendMail";
+    }
+
+    @PostMapping("/friend/{friendId}")
+    public void saveFriend(@PathVariable String friendId, @CookieValue(value = "memberId", required = false) Cookie memberCookie) {
+        friendService.saveFriend(memberCookie, friendId);
+    }
+
+    @DeleteMapping("/friend/{friendId}")
+    public void deleteFriend(@PathVariable String friendId, @CookieValue(value = "memberId", required = false) Cookie memberCookie ) {
+        friendService.deleteFriend(memberCookie, friendId);
     }
 }

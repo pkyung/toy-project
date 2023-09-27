@@ -1,10 +1,19 @@
-let button = document.getElementById("request");
-let friendId = document.getElementById("request");
+let save = document.getElementById("save");
+let deleteButton = document.getElementById("delete");
+let friendId = document.getElementById("save");
 
-button.onclick = function () {
+save.onclick = function () {
     $.ajax({
         type: "POST",
-        url: `/friend/request/${friendId.value}`,
+        url: `/friend/${friendId.value}`,
     })
-    button.disabled = true;
+    save.disabled = true;
+}
+
+deleteButton.onclick = function () {
+    $.ajax({
+        type: "DELETE",
+        url: `/friend/${friendId.value}`,
+    })
+    deleteButton.disabled = true;
 }

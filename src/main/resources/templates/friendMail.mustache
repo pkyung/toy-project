@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <title>friendMail</title>
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     </head>
     <body>
         <div class="container">
@@ -20,14 +22,13 @@
                         <tr>
                             <td>{{name}}</td>
                             <td>{{uuid}}</td>
-                            <td><button value="{{uuid}}"  type="button" class="btn btn-outline-secondary">친구 추가</button></td>
-                            <td><button value="{{uuid}}"  type="button" class="btn btn-outline-secondary">친구 차단</button></td>
+                            <td><button id="save" value="{{uuid}}" type="button" class="btn btn-outline-secondary">친구 추가</button></td>
+                            <td><button id="delete" value="{{uuid}}" type="button" class="btn btn-outline-secondary">친구 차단</button></td>
                         </tr>
                     </tbody>
                 {{/friends}}
             </table>
         </div>
     </body>
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://kit.fontawesome.com/27dd9ac1bb.js" crossorigin="anonymous"></script>
+   <script src="/static/saveFriend.js"></script>
 </html>
