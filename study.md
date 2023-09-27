@@ -36,3 +36,6 @@ JpaRepository<Comment, Long> 이 작업을 하지 않으면 빈 생성이 안된
 
 ## org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL
 entity 명에 like 가 있어서 그랬다. likes로 수정하니 에러는 사라졌다. 테이블 명은 복수형이 되도록 하자.
+
+## 정적 파일, 템플릿 파일 경로 설정
+[블로그 정리](https://p-kyung.tistory.com/85)
