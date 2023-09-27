@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>friendSearch</title>
+    </head>
+    <body>
+        <div class="container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">친구 이름</th>
+                        <th scope="col">친구 아이디</th>
+                        <th scope="col">친구 요청</th>
+                    </tr>
+                </thead>
+                {{#friends}}
+                    <tbody>
+                        <tr>
+                            <td>{{name}}</td>
+                            <td>{{uuid}}</td>
+                            <td><button type="button" class="btn btn-outline-secondary">친구 요청</button></td>
+                        </tr>
+                    </tbody>
+                {{/friends}}
+            </table>
+        </div>
+    </body>
+</html>

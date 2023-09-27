@@ -20,4 +20,10 @@ public class FriendController {
         model.addAttribute("friends", friendService.getFriend(memberCookie));
         return "friendList";
     }
+
+    @GetMapping("/friend/search")
+    public String getSearch(@CookieValue(value = "memberId", required = false) Cookie memberCookie, String keyword, Model model) {
+        model.addAttribute("friends", friendService.getSearch(memberCookie, keyword));
+        return "friendSearch";
+    }
 }
