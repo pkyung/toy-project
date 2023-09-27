@@ -4,7 +4,7 @@ let friendId = document.getElementById("request");
 button.onclick = function () {
     $.ajax({
         type: "POST",
-        url: `/friend/${friendId.value}`,
+        url: `/friend/request/${friendId.value}`,
     })
     button.disabled = true;
 }

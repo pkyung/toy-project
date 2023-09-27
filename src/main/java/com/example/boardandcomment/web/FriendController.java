@@ -30,7 +30,7 @@ public class FriendController {
         return "friendSearch";
     }
 
-    @PostMapping("/friend/{friendId}")
+    @PostMapping("/friend/request/{friendId}")
     public Friend saveFriendRequest(@PathVariable String friendId, @CookieValue(value = "memberId", required = false) Cookie memberCookie) {
         return friendService.saveFriendRequest(memberCookie, friendId);
     }
