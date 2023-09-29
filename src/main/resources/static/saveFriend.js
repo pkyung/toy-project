@@ -1,19 +1,21 @@
-let save = document.getElementById("save");
-let deleteButton = document.getElementById("delete");
-let friendId = document.getElementById("save");
-
-save.onclick = function () {
-    $.ajax({
-        type: "POST",
-        url: `/friend/${friendId.value}`,
+document.querySelectorAll(".save").forEach(function (button) {
+    button.addEventListener("click", function (event) {
+        let friendId = event.target;
+        $.ajax({
+            type: "POST",
+            url: `/friend/${friendId.value}`,
+        })
+        button.disabled = true;
     })
-    save.disabled = true;
-}
+});
 
-deleteButton.onclick = function () {
-    $.ajax({
-        type: "DELETE",
-        url: `/friend/${friendId.value}`,
+document.querySelectorAll(".delete").forEach(function (button) {
+    button.addEventListener("click", function (event) {
+        let friendId = event.target;
+        $.ajax({
+            type: "DELETE",
+            url: `/friend/${friendId.value}`,
+        })
+        button.disabled = true;
     })
-    deleteButton.disabled = true;
-}
+});

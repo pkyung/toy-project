@@ -39,3 +39,6 @@ entity 명에 like 가 있어서 그랬다. likes로 수정하니 에러는 사�
 
 ## 정적 파일, 템플릿 파일 경로 설정
 [블로그 정리](https://p-kyung.tistory.com/85)
+
+## 친구 추가 db 설계 다시하기
+[블로그 정리](https://p-kyung.tistory.com/86)
