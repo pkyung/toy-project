@@ -42,3 +42,6 @@ entity 명에 like 가 있어서 그랬다. likes로 수정하니 에러는 사�
 
 ## 친구 추가 db 설계 다시하기
 [블로그 정리](https://p-kyung.tistory.com/86)
+
+## 어떤 버튼이 눌렸는지 인식하는 법
+[블로그 정리](https://p-kyung.tistory.com/87)
