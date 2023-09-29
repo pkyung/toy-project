@@ -23,7 +23,4 @@ public class Member {
     private String password;
     private String name;
 
-    @OneToMany
-    private List<Member> friends = new ArrayList<>();
-
 }

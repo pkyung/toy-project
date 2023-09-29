@@ -1,6 +1,6 @@
 package com.example.boardandcomment.web;
 
-import com.example.boardandcomment.domain.friend.Friend;
+import com.example.boardandcomment.domain.friendRequest.FriendRequest;
 import com.example.boardandcomment.service.FriendService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -28,7 +28,7 @@ public class FriendController {
     }
 
     @PostMapping("/friend/request/{friendId}")
-    public Friend saveFriendRequest(@PathVariable String friendId, @CookieValue(value = "memberId", required = false) Cookie memberCookie) {
+    public FriendRequest saveFriendRequest(@PathVariable String friendId, @CookieValue(value = "memberId", required = false) Cookie memberCookie) {
         return friendService.saveFriendRequest(memberCookie, friendId);
     }
 

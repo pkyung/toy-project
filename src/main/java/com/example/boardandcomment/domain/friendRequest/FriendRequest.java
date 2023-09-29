@@ -1,4 +1,4 @@
-package com.example.boardandcomment.domain.friend;
+package com.example.boardandcomment.domain.friendRequest;
 
 import com.example.boardandcomment.domain.member.Member;
 import lombok.AllArgsConstructor;
@@ -13,17 +13,17 @@ import javax.persistence.*;
 @Getter
 @Builder
 @Entity
-public class Friend {
-
+public class FriendRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "member_id")
-    private Member member;
+    @JoinColumn(name = "give_id")
+    private Member giveMember;
 
     @ManyToOne
-    @JoinColumn(name = "friend_id")
-    private Member friend;
+    @JoinColumn(name = "take_id")
+    private Member takeMember;
+
 }
