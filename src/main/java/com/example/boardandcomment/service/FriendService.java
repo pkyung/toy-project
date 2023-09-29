@@ -1,7 +1,7 @@
 package com.example.boardandcomment.service;
 
-import com.example.boardandcomment.domain.friend.Friend;
 import com.example.boardandcomment.domain.friend.FriendRepository;
+import com.example.boardandcomment.domain.friend.Friend;
 import com.example.boardandcomment.domain.member.Member;
 import com.example.boardandcomment.domain.member.MemberRepository;
 import lombok.AllArgsConstructor;

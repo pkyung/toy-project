@@ -1,4 +1,4 @@
-package com.example.boardandcomment.Config;
+package com.example.boardandcomment.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.CacheControl;

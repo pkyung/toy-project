@@ -1,7 +1,6 @@
 package com.example.boardandcomment.web;
 
 import com.example.boardandcomment.domain.friend.Friend;
-import com.example.boardandcomment.domain.member.Member;
 import com.example.boardandcomment.service.FriendService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
