@@ -34,10 +34,17 @@ public class FriendService {
         Member member = memberRepository.findByUuid(memberId.getValue()).orElseThrow(() -> new IllegalArgumentException("해당 멤버가 없습니다."));
         List<Member> searchList = new ArrayList<>();
         List<Member> memberList = memberRepository.findByUuidContaining(keyword);
+        List<Friend> friendList = friendRepository.findByMember(member);
 
-        for (int i = 0; i < memberList.size(); i++) {
-            if (!memberList.get(i).equals(member)) {
-                searchList.add(memberList.get(i));
+        for (Member m : memberList) {
+            boolean isFriend = false;
+            for (Friend f : friendList) {
+                if (f.getFriend().equals(m)) {
+                    isFriend = true;
+                }
+            }
+            if (!m.equals(member) && !isFriend) {
+                searchList.add(m);
             }
         }
         return searchList;
