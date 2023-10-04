@@ -6,9 +6,10 @@
     </head>
     <body>
         <div class="container">
-            <form method="post" action="/board">
+            <form enctype="multipart/form-data" method="post" action="/board">
                 <input class="form-control" placeholder="제목을 입력해주세요" name="title" required> <br>
-                 <textarea class="form-control" placeholder="내용을 입력해주세요" rows="10" cols="50" name="content" required></textarea> <br>
+                <textarea class="form-control" placeholder="내용을 입력해주세요" rows="10" cols="50" name="content" required></textarea> <br>
+                <input class="form-control" name="image" type="file">
                 <input class="btn btn-outline-secondary" type="submit">
             </form>
         </div>

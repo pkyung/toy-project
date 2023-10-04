@@ -24,6 +24,8 @@ public class Board extends TimeStamped {
     @JoinColumn(name = "member_id")
     private Member writer;
 
+    private String image;
+
     public void update(String title, String content) {
         this.title = title;
         this.content = content;

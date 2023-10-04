@@ -7,13 +7,22 @@ import com.example.boardandcomment.domain.member.MemberRepository;
 import com.example.boardandcomment.web.dto.BoardRequestDto;
 import com.example.boardandcomment.web.dto.BoardResponseDto;
 import lombok.AllArgsConstructor;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.Cookie;
 import javax.transaction.Transactional;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Service
@@ -49,16 +58,16 @@ public class BoardService {
         return boardResponseDto;
     }
 
-    public Board saveBoard(BoardRequestDto boardRequestDto, Cookie memberCookie) {
+    public Board saveBoard(BoardRequestDto boardRequestDto, Cookie memberCookie, String fileName) {
         String title = boardRequestDto.getTitle();
         String content = boardRequestDto.getContent();
-
         Member member = memberRepository.findByUuid(memberCookie.getValue()).orElseThrow(() -> new IllegalArgumentException("해당 멤버가 없습니다"));
 
         return boardRepository.save(Board.builder()
                 .title(title)
                 .writer(member)
                 .content(content)
+                .image(fileName)
                 .build());
     }
 

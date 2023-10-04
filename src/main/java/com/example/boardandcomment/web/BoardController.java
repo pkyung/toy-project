@@ -3,11 +3,16 @@ package com.example.boardandcomment.web;
 import com.example.boardandcomment.service.BoardService;
 import com.example.boardandcomment.web.dto.BoardRequestDto;
 import lombok.AllArgsConstructor;
+import org.springframework.boot.system.ApplicationHome;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.Cookie;
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
 
 @AllArgsConstructor
 @Controller
@@ -34,7 +39,23 @@ public class BoardController {
 
     @PostMapping("/board")
     public String saveBoard(BoardRequestDto boardRequestDto, @CookieValue(value = "memberId", required = false) Cookie memberCookie) {
-        boardService.saveBoard(boardRequestDto, memberCookie);
+        MultipartFile image = boardRequestDto.getImage();
+        if (!image.isEmpty()) {
+            try {
+                String uploadFileName = image.getOriginalFilename();
+                UUID uuid = UUID.randomUUID();
+                uploadFileName = uuid + "_" + uploadFileName;
+                String uploadPath = "C:\\Users\\User\\IdeaProjects\\BoardAndComment\\images\\" + uploadFileName;
+                File dest = new File(uploadPath);
+                image.transferTo(dest);
+
+                boardService.saveBoard(boardRequestDto, memberCookie, uploadFileName);
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        } else {
+            boardService.saveBoard(boardRequestDto, memberCookie, null);
+        }
         return "redirect:/board";
     }
 
