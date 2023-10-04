@@ -7,22 +7,12 @@ import com.example.boardandcomment.domain.member.MemberRepository;
 import com.example.boardandcomment.web.dto.BoardRequestDto;
 import com.example.boardandcomment.web.dto.BoardResponseDto;
 import lombok.AllArgsConstructor;
-import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.Cookie;
 import javax.transaction.Transactional;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @AllArgsConstructor
 @Service
@@ -55,6 +45,9 @@ public class BoardService {
         boardResponseDto.setCreateAt(board.getCreateAt());
         boardResponseDto.setModifiedAt(board.getModifiedAt());
         boardResponseDto.setWriter(board.getWriter().getName());
+        if (board.getImage() != null) {
+            boardResponseDto.setImage("/static/images/" + board.getImage());
+        }
         return boardResponseDto;
     }
 

@@ -45,7 +45,7 @@ public class BoardController {
                 String uploadFileName = image.getOriginalFilename();
                 UUID uuid = UUID.randomUUID();
                 uploadFileName = uuid + "_" + uploadFileName;
-                String uploadPath = "C:\\Users\\User\\IdeaProjects\\BoardAndComment\\images\\" + uploadFileName;
+                String uploadPath = "C:\\Users\\User\\IdeaProjects\\BoardAndComment\\src\\main\\resources\\static\\images\\" + uploadFileName;
                 File dest = new File(uploadPath);
                 image.transferTo(dest);
 

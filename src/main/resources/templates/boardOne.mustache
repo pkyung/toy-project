@@ -15,7 +15,7 @@
                 <div style="text-align: right"><h6>등록일: {{createAt}}</h6></div>
                 <div style="text-align: right"><h6>수정일: {{modifiedAt}}</h6></div>
                 {{#mine}}
-                    <div>
+                    <div style="margin-bottom: 20px">
                         <form action="/board/{{id}}" method="post">
                             <button onclick="location.href='/boardUpdate/{{id}}'" type="button" class="btn btn-outline-secondary">수정</button>
                             <input type="hidden" name="_method" value="delete">
@@ -23,6 +23,9 @@
                         </form>
                     </div>
                 {{/mine}}
+                {{#image}}
+                    <img width="500px" style="display: block; margin: auto" src="{{image}}">
+                {{/image}}
             </div>
             <div id="like">
 
