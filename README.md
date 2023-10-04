@@ -8,7 +8,7 @@
 - 게시글 좋아요 ✅
 - 팔로우 기능 ✅
 - new 10/02 채팅 기능
-- 게시판 이미지 저장 기능
+- 게시판 이미지 저장 기능 ✅
 
 ## 💽db 설계
 ![toyProject](https://github.com/pkyung/toy-project/assets/81898507/3dac1c88-3b75-44f0-9ef7-c98b5d97420a)
