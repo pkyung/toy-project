@@ -11,7 +11,8 @@
 - 게시판 이미지 저장 기능 ✅
 
 ## 💽db 설계
-![toyProject](https://github.com/pkyung/toy-project/assets/81898507/3dac1c88-3b75-44f0-9ef7-c98b5d97420a)
+![toyProject](https://github.com/pkyung/toy-project/assets/81898507/599f96aa-13e9-4cdc-9a5d-58c32ed23d31)
+
 
 
 ## 🛠개발 환경
